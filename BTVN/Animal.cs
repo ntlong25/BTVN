@@ -13,48 +13,51 @@ namespace BTVN
             Mèo: Meow
             Voi: Gre
      */
-    public class Dog
+    public class Dog : Animal
     {
-        public string Talk()
+        public override string Talk()
         {
             return "Bow";
         }
     }
-    public class Cat
+    public class Cat : Animal
     {
-        public string Talk()
+        public override string Talk()
         {
             return "Meow";
         }
     }
-    public class Elephant
+    public class Elephant : Animal 
     {
-        public string Talk()
+        public override string Talk()
         {
             return "Gre";
         }
     }
     public class Animal
     {
+        public virtual string Talk()
+        {
+            return "Implement...";
+        }
         public void RandomAnimal()
         {
-            string[] lstAnimal = new string[9];
 
-            Dog dog1 = new Dog(); lstAnimal[0] = dog1.Talk();
-            Dog dog2 = new Dog(); lstAnimal[1] = dog2.Talk();
-            Dog dog3 = new Dog(); lstAnimal[2] = dog3.Talk();
+            Dog dog1 = new Dog(); 
+            Dog dog2 = new Dog(); 
+            Dog dog3 = new Dog(); 
 
-            Cat cat1 = new Cat(); lstAnimal[3] = cat1.Talk();
-            Cat cat2 = new Cat(); lstAnimal[4] = cat2.Talk();
-            Cat cat3 = new Cat(); lstAnimal[5] = cat3.Talk();
+            Cat cat1 = new Cat(); 
+            Cat cat2 = new Cat(); 
 
-            Elephant elephant1 = new Elephant(); lstAnimal[6] = elephant1.Talk();
-            Elephant elephant2 = new Elephant(); lstAnimal[7] = elephant2.Talk();
-            Elephant elephant3 = new Elephant(); lstAnimal[8] = elephant3.Talk();
+            Elephant elephant1 = new Elephant(); 
+            Elephant elephant2 = new Elephant(); 
 
-            for(int i = 0; i < lstAnimal.Length ;++i)
+
+            Animal[] lstAnimal = { dog1, dog2, cat1, cat2, elephant1, elephant2 };
+            for (int i = 0; i < lstAnimal.Length ;++i)
             {
-                Console.WriteLine(lstAnimal[i]);
+                Console.WriteLine(lstAnimal[i].Talk());
             }
         }
     }
